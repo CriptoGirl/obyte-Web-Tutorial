@@ -1,0 +1,52 @@
+h3 8. Submitting the Form
+
+h5 Creating a POST route
+p Add
+  code.text-info  post
+  span  router in the
+  code.text-info  routes/postDAG.js
+  span  file containing placeholder for future obyte integration as following:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    router.post('/', (req, res) => {
+      // preparing transaction data
+      // posting obyte payment & displaying results
+      // posting obyte data & displaying results
+      // posting obyte data feed & displaying results
+      // testing post router
+      console.log(req.body);
+      res.send('Posted to DAG');
+    })
+br
+p Test by clicking the
+  code.text-info  Post to DAG
+  span  button.
+  span  This should display 'Posted to DAG' message in your browser.
+  span  You would not be able to see submitted data on your console
+  span  just yet though.
+
+h5 Handling the Data Submitted by the Form
+p Install a package named
+  code.text-info  body-parser
+  span , which will make it easier to access the form data:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    npm install --save body-parser
+br
+p Then add following code to your
+  code.text-info  startup/app.js
+  span  file:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    const bodyParser = require('body-parser');
+    ...
+    app.use(bodyParser.urlencoded({ extended: true }));
+br
+p.
+  Test your application and check console to see your data
+  posted to the server.
+p You should see something like this:
+  code.text-info  { type: 'data', wid: 'wid123test', 'myField 1': 'myValue 1', myField2: 'myValue 2', 'myField 3': 'myValue 3' }

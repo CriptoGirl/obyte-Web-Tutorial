@@ -1,0 +1,44 @@
+
+h5 Dynamically generating Data Section of the Form
+p Add following code to the
+  code.text-info  js_dataDiv.pug
+  span  file:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // Javascript for dynamic creation of the Data section of the Form
+    script.
+      function dataDiv() {
+        // dynamically create Data section of the Form
+        //alert('inside dataDiv function');
+        var element = document.createElement('div');
+        var innerHTML =
+          `&#60;div class='form-group subform' id='data'&#62;
+            &#60;div class='form-group'&#62;
+              &#60;h5&#62; Values Dynamic&#60;/h5&#62;
+              &#60;div class='form-row' id='1'&#62;
+                &#60;div class='col-md-4'&#62;
+                  &#60;input
+                    class='form-control field1'
+                    id='field-1'
+                    placeholder='${placeholder}'
+                    onchange='setName(id)'&#62;
+                &#60;/div&#62;
+                &#60;div class='col-md-7'&#62;
+                  &#60;input
+                    class='form-control'
+                    id='value-1'
+                    placeholder='Value'&#62;
+                &#60;/div&#62;
+              &#60;/div&#62;
+            &#60;/div&#62;
+            &#60;div id='newRows'&#62;&#60;/div&#62;
+            &#60;div class='form-group'&#62;
+              &#60;button type='button' onclick='addRow()'&#62;+&#60;/button&#62;
+            &#60;/div&#62;
+          &#60;/div&#62;`;
+
+        element.innerHTML = innerHTML;
+        document.getElementById("dataDiv").appendChild(element);
+      }
+br

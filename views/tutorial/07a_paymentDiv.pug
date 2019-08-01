@@ -1,0 +1,39 @@
+
+h5 Dynamically generating Payment Section of the Form
+p Add following code to the
+  code.text-info  js_paymentDiv.pug
+  span  file:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // Javascript for dynamic creation of the Payments section of the Form
+    script.
+      function paymentDiv() {
+        var element = document.createElement('div');
+        var innerHTML =
+          `&#60;div class='form-group subform' id='payment'&#62
+            &#60;h5&#62; Payment details&#60;/h5&#62
+            &#60;div class='form-row'&#62
+              &#60;div class='col-md-4'&#62
+                &#60;label for='amount'&#62Amount&#60;/label&#62
+                &#60;input
+                  class='form-control'
+                  id='amount'
+                  name='amount'
+                  placeholder='Bytes'&#62
+              &#60;/div&#62
+              &#60;div class='col-md-7'&#62
+                &#60;label for='recipient'&#62Recipient's wallet address&#60;/label&#62
+                &#60;input
+                  class='form-control'
+                  id='recipient'
+                  name='recipient'
+                  placeholder='Address'&#62
+              &#60;/div&#62
+            &#60;/div&#62
+          &#60;/div&#62`;
+
+        element.innerHTML = innerHTML;
+        document.getElementById("paymentDiv").appendChild(element);
+      }
+br

@@ -1,0 +1,40 @@
+h3 2. Getting Started
+
+h5 Create new directory
+p Create new directory for your application, e.g.
+  code.text-info  myObyteApp.
+
+h5 Initialise
+p.
+  Initialise your new project, by going to in in your terminal
+  window and typing the following command:
+p.card.bg-light
+  code.card-body.text-info npm init -y
+p This will create and populate a
+  code.text-info  package.json
+  span  file in your directory.
+
+h5 Install Express
+p.
+  Express is a lightweight web application framework for Node.js,
+  which provides a robust set of features for writing web apps.
+  These features include route handling, template engine integration
+  and a middleware framework.
+p Type following command in the terminal window:
+p.card.bg-light
+  code.card-body.text-info npm install --save express
+p
+  code.text-info  --save
+  span  option, adds Express to the dependencies section
+  of the
+  code.text-info  package.json
+  span  file.
+
+h5 Install nodemon
+p.
+  nodemon is a convenience tool. It will watch the files
+  in the directory it was started in, and if it detects any
+  changes, it will automatically restart Node application.
+  Type following command in the terminal window:
+p.card.bg-light
+  code.card-body.text-info npm install --save-dev nodemon

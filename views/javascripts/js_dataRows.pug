@@ -1,0 +1,44 @@
+// Javascript to add / remove rows from the Data section of the Form
+script.
+  function addRow() {
+    rowId++;
+    var fieldId = 'field-' + rowId;
+    var valueId = 'value-' + rowId;
+    var buttonId = 'button-' + rowId;
+    var element = document.createElement('div');
+    element.id = rowId;
+
+    var innerHTML =
+      `<div class='form-group'>
+        <div class='form-row'>
+          <div class='col-md-4'>
+            <input type='text'
+              id=${fieldId}
+              class='form-control field1'
+              placeholder='${placeholder}'
+              onchange='setName(id)'>
+          </div>
+          <div class='col-md-7'>
+            <input type='text'
+              id=${valueId}
+              class='form-control'
+              placeholder='Value'>
+          </div>
+          <div class='col-md-1'>
+            <button type="button"
+              id=${buttonId}
+              onclick='removeRow( ${rowId} )'>-</button>
+          </div>
+        </div>
+      </div>`;
+
+    element.innerHTML = innerHTML;
+    document.getElementById("newRows").appendChild(element);
+    //getPlaceholder();
+  }
+
+  function removeRow(rowId) {
+    // Removes an element from the document
+    var element = document.getElementById(rowId);
+    element.parentNode.removeChild(element);
+  }

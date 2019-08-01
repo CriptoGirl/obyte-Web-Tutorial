@@ -1,0 +1,67 @@
+h3 6. Pug Forms
+
+h5 Creating a basic Data Entry form with Pug
+p Extend
+  code.text-info  postDAG.pug
+  span  template as following:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    extends layout
+
+    block content
+      &#60;script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"&#62;&#60;/script&#62;
+      &#60;script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"&#62;&#60;/script&#62;
+
+      h2 Post to DAG
+      p.
+        Use Data option on this page to post arbitrary key-value pairs into
+        Obyte network.
+        Use Data Feed option on this page to post values into datafeeds
+        as an oracle.
+
+      // JavaScript section
+
+      // Form section
+      form(method='POST' action='/postDAG')
+
+        div.form-group
+          div.form-row
+            div.col-md-2
+              label(for='type') Type:
+              select.form-control(
+                id='type'
+                name='type'
+                onchange='typeChange()'
+              )
+                option() What to post?
+                option(value='bytes') Bytes
+                option(value='data') Data
+                option(value='data_feed') Data Feed
+            div.col-md-7
+              label(for='wif') WIF of wallet to be used to fund the transaction
+              input.form-control(
+                id='wif'
+                name='wif'
+                placeholder='WIF'
+              )
+
+        div(id='paymentDiv')
+        div(id='dataDiv')
+
+        div.form-group
+            button.btn.btn-primary(type='submit') Post to DAG
+
+        div(id='errorDiv')
+
+      // Result Section
+
+p In the above template we have used standard
+  code.text-info  Bootstrap 4
+  span  css classes, e.g.:
+  code.text-info  form-group form-row col-md-2 col-md-4 form-control btn btn-primary
+  span .
+
+p.
+  You should see the basic data entry form in the browser.
+  However at this stage payment and data sections of the forms are missing and none of the buttons are working yet.

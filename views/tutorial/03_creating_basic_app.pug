@@ -1,0 +1,60 @@
+h3 3. Creating Basic Node js Application
+
+h5 Create initial files and directory structure
+
+p In your application folder create
+  code.text-info  index.js
+  span  file, then add following code to it:
+
+div.card.bg-light
+  div.card-body
+    pre.text-info.
+      const app = require('./startup/app');
+
+      const server = app.listen(process.env.PORT || 3000, () => {
+        console.log(`Express is running on port ${server.address().port}`);
+      });
+
+br
+p Create
+  code.text-info  startup
+  span  folder under your application folder and add
+  code.text-info  app.js
+  span  file to it, then add following code to it:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    const express = require('express');
+    const app = express();
+
+    // routers
+
+    module.exports = app;
+
+br
+p Your application directory should look like this:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    myObyteApp
+      startup
+        app.js
+      index.js
+      package.json
+
+br
+p.
+  Now, you can start your application by typing the following
+  in the command window:
+p.card.bg-light
+  code.card-body.text-info nodemon
+p By default
+  code.text-info  nodemon
+  span  will look for
+  code.text-info  index.js
+  span  file.  Your server will be started on port 3000 and
+  span  you should see the following message in the command window:
+
+img.img-fluid(src='serverRunning.gif' style='max-width:500px')
+br
+br

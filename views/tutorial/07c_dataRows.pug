@@ -1,0 +1,53 @@
+
+h5 Dynamically adding and removing Rows of the Data Section of the Form
+p Add following code to the
+  code.text-info  js_dataRows.pug
+  span  file:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // Javascript to add / remove rows from the Data section of the Form
+    script.
+      function addRow() {
+        rowId++;
+        var fieldId = 'field-' + rowId;
+        var valueId = 'value-' + rowId;
+        var buttonId = 'button-' + rowId;
+        var element = document.createElement('div');
+        element.id = rowId;
+
+        var innerHTML =
+          `&#60;div class='form-group'&#62;
+            &#60;div class='form-row'&#62;
+              &#60;div class='col-md-4'&#62;
+                &#60;input type='text'
+                  id=${fieldId}
+                  class='form-control field1'
+                  placeholder='${placeholder}'
+                  onchange='setName(id)'&#62;
+              &#60;/div&#62;
+              &#60;div class='col-md-7'&#62;
+                &#60;input type='text'
+                  id=${valueId}
+                  class='form-control'
+                  placeholder='Value'&#62;
+              &#60;/div&#62;
+              &#60;div class='col-md-1'&#62;
+                &#60;button type="button"
+                  id=${buttonId}
+                  onclick='removeRow( ${rowId} )'&#62;-&#60;/button&#62;
+              &#60;/div&#62;
+            &#60;/div&#62;
+          &#60;/div&#62;`;
+
+        element.innerHTML = innerHTML;
+        document.getElementById("newRows").appendChild(element);
+        //getPlaceholder();
+      }
+
+      function removeRow(rowId) {
+        // Removes an element from the document
+        var element = document.getElementById(rowId);
+        element.parentNode.removeChild(element);
+      }
+br

@@ -1,0 +1,79 @@
+h3 4. Making it work in a browser
+
+h5 Adding routes
+
+p Create
+  code.text-info  routes
+  span  folder under your application folder. Add
+  code.text-info  home.js
+  span ,
+  code.text-info  postDAG.js
+  span ,
+  code.text-info  searchDAG.js
+  span  files to the
+  code.text-info  routes
+  span  folder.
+
+p Add following code to
+  code.text-info  home.js
+  span  file:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    const express = require('express');
+    const router = express.Router();
+
+    router.get('/', (req, res) => {
+      res.send('Home page');
+    });
+
+    module.exports = router;
+
+br
+p Add the same code to
+  code.text-info  postDAG.js
+  span  and
+  code.text-info  searchDAG.js
+  span  files, replacing
+  code.text-info  res.send('Home page');
+  span  with
+  code.text-info  res.send('Post DAG page');
+  span  and
+  code.text-info  res.send('Search DAG page');
+  span  as appropriate.
+
+br
+p Add routers code to
+  code.text-info  app.js
+  span  file as following:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // routes
+    const home = require('../routes/home');
+    const postDAG = require('../routes/postDAG');
+    const searchDAG = require('../routes/searchDAG');
+
+    app.use('/', home);
+    app.use('/home', home);
+    app.use('/postDAG', postDAG);
+    app.use('/searchDAG', searchDAG);
+
+br
+p Test it by opening a browser and typing
+  code.text-info  http://localhost:3000/
+  span  as the url.  You should see
+  code.text-info  Home Page
+  span  message displayed in the browser.  The same message should show when typing
+  code.text-info  http://localhost:3000/home
+p Repeat test by typing
+  code.text-info  http://localhost:3000/postDAG
+  span  to see
+  code.text-info  Post DAG Page
+  span  message and
+  code.text-info  http://localhost:3000/searchDAG
+  span  to see
+  code.text-info  Search DAG Page
+  span  message.
+
+br

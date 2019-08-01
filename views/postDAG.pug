@@ -1,0 +1,69 @@
+extends layout
+
+block content
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  h2 Post to DAG Sample Page
+  p.
+    Use Data option on this page to post arbitrary key-value pairs into
+    Obyte network.
+    Use Data Feed option on this page to post values into datafeeds
+    as an oracle.
+
+  // JavaScript section
+  include javascripts/js_changeType.pug
+  include javascripts/js_paymentDiv.pug
+  include javascripts/js_dataDiv.pug
+  include javascripts/js_dataRows.pug
+  include javascripts/js_dataName.pug
+
+  // Form section
+  form(method='POST' action='/postDAG')
+
+    div.form-group
+      div.form-row
+        div.col-md-2
+          label(for='type') Type:
+          select.form-control(
+            id='type'
+            name='type'
+            onchange='typeChange()'
+          )
+            option() What to post?
+            option(value='bytes') Bytes
+            option(value='data') Data
+            option(value='data_feed') Data Feed
+        div.col-md-7
+          label(for='wif') WIF of wallet to be used to fund the transaction
+          input.form-control(
+            id='wif'
+            name='wif'
+            placeholder='WIF'
+          )
+
+    div(id='paymentDiv')
+    div(id='dataDiv')
+
+    div.form-group
+        button.btn.btn-primary(type='submit') Post to DAG
+
+    div(id='errorDiv')
+
+  // Result Section
+  br
+  if result
+    div.alert.alert-success.alert-dismissible(id='result')
+      a.close( href='#' data-dismiss='alert' ) ×
+      h4 Transaction posted !
+      p Unit hash:
+        span=  result
+      hr
+      a.alert-link( href="https://testnetexplorer.obyte.org/#"+result target="testnet" )
+        span See it on the DAG.
+  if err
+    div.alert.alert-danger.alert-dismissible(id='error')
+      a.close( href='#' data-dismiss='alert' ) ×
+      strong Error:
+      span  data can not be saved !
+      span= err

@@ -1,0 +1,30 @@
+// Javascript for dynamic creation of the Payments section of the Form
+script.
+  function paymentDiv() {
+    var element = document.createElement('div');
+    var innerHTML =
+      `<div class='form-group subform' id='payment'>
+        <h5> Payment details</h5>
+        <div class='form-row'>
+          <div class='col-md-4'>
+            <label for='amount'>Amount</label>
+            <input
+              class='form-control'
+              id='amount'
+              name='amount'
+              placeholder='Bytes'>
+          </div>
+          <div class='col-md-7'>
+            <label for='recipient'>Recipient's wallet address</label>
+            <input
+              class='form-control'
+              id='recipient'
+              name='recipient'
+              placeholder='Address'>
+          </div>
+        </div>
+      </div>`;
+
+    element.innerHTML = innerHTML;
+    document.getElementById("paymentDiv").appendChild(element);
+  }

@@ -1,0 +1,48 @@
+h3 11. obyte Integration
+
+h5 Installing obyte libraries
+
+p Install obyte libraries by running following command in the terminal window:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    npm i obyte --save
+
+p I have got a whole bunch of errors re
+  code.text-info  secp256k1
+  span  and I could not figure out how to resolve it.
+  span  However, this does not seems to have any impact on what I am trying to do here.
+
+h5 Initiating the WebSocket client
+
+p Create
+  code.text-info  obyte.js
+  span  file in the
+  code.text-info  startup
+  span  directory containing the following code:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    const obyte = require('obyte');
+
+    // connect to obyte testnet
+    const options = { testnet: true };
+    const client = new obyte.Client('wss://obyte.org/bb-test', options);
+
+    // To keep the connection with the WebSocket node alive you need to notify the node that your peer is awake every 10 sec.
+    setInterval(function() {
+      client.api.heartbeat()
+    }, 10 * 1000);
+
+    module.exports = client;
+
+br
+p We are running this demo against obyte testnet. When you are ready to connect to live obyte network, replace
+  code.text-info  // connect to obyte testnet
+  span  with the following code:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // connect to mainnet official node wss://obyte.org/bb
+    const client = new obyte.Client();
+br

@@ -1,0 +1,79 @@
+
+h5 Setting name property, checking its uniqueness and raising errors
+p Add following code to the
+  code.text-info  js_dataName.pug
+  span  file:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // Javascript to set name property of the data field and check for uniqueness
+    script.
+      function setName(id) {
+        // get the value of the 1st field in the row
+        var name = document.getElementById(id).value;
+
+        // check that the value of the 1st field is unique
+        uniqueName(id, name);
+
+        // set name attribute of the 2nd field in the row to the value of 1st field
+        var element = document.getElementById('value-'+id.substr(6));
+        element.setAttribute('name', name);
+      }
+
+      function uniqueName(id, name) {
+        // validate that the data in 'field'/'data feed' is unique
+        var elements = document.getElementsByClassName('field1');
+        var count=0;
+
+        for (var i = 0; i < elements.length; i++) {
+          if (name === elements[i].value) count++
+        }
+
+        if (count > 1) {
+          var message = placeholder + ' has to be unique.'
+          showError(message);
+          // if 1st row is removed, remove delete button from the next row
+          if (id.substr(6) === '1') {
+            var buttonId = 'button-' + elements[1].id.substr(6);
+            var elementButton = document.getElementById(buttonId);
+            elementButton.parentNode.removeChild(elementButton);
+          }
+          // remove row
+          removeRow(id.substr(6));
+        }
+      }
+
+      function showError(message) {
+        // dynamically display error
+        var element = document.createElement('div');
+        var innerHTML =
+          `&#60;div class='form-group' id='error'&#62;
+            &#60;div class='alert alert-danger alert-dismissible' id='error'&#62;
+              &#60;a class='close' href='#' data-dismiss='alert'>×&#60;/a&#62;
+              &#60;strong&#62;Error:&#60;/strong&#62;
+              &#60;span&#62;${message}&#60;/span&#62;
+          &#60;/div&#62;`;
+
+        element.innerHTML = innerHTML;
+        document.getElementById("errorDiv").appendChild(element);
+      }
+
+br
+h5 Call javascript files from PUG template
+p Add following code to the
+  code.text-info  // JavaScript section
+  span  of the
+  code.text-info  postDAG.pug
+  span  template as following:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // JavaScript section
+    include javascripts/js_changeType.pug
+    include javascripts/js_paymentDiv.pug
+    include javascripts/js_dataDiv.pug
+    include javascripts/js_dataRows.pug
+    include javascripts/js_dataName.pug
+
+br
+p Test the Form by selecting different Type values. Test adding and removing rows of the data section.

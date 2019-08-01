@@ -1,0 +1,36 @@
+h3 13. Displaying & testing results of obyte transaction
+
+h5 Modifying pug template
+
+p Add the following code to the
+  code.text-info  // Results Section
+  span  of the
+  code.text-info  views/postDAG.pug
+  span  file:
+
+  div.card.bg-light.card-body
+    pre.text-info.
+      // Result Section
+      br
+      if result
+        div.alert.alert-success.alert-dismissible(id='result')
+          a.close( href='#' data-dismiss='alert' ) ×
+          h4 Transaction posted !
+          p Unit hash:
+            span=  result
+          hr
+          a.alert-link( href="https://testnetexplorer.obyte.org/#"+result target="testnet" )
+            span See it on the DAG.
+      if err
+        div.alert.alert-danger.alert-dismissible(id='error')
+          a.close( href='#' data-dismiss='alert' ) ×
+          strong Error:
+          span  data can not be saved !
+          span= err
+
+h5 Testing
+p.
+  Test posting obyte payment, data and data-feed transactions. Click on the link in the results section
+  of your page to view your transaction on the obyte network.
+br
+p.

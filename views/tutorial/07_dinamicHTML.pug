@@ -1,0 +1,62 @@
+h3 7. Dynamically adding sections to the Form
+
+p Create
+  code.text-info  javascripts
+  span  directory under the
+  code.text-info  views
+  span  folder.  And add to it following files
+  code.text-info  js_changeType.pug
+  span ,
+  code.text-info  js_paymentDiv.pug
+  span ,
+  code.text-info  js_dataDiv.pug
+  span ,
+  code.text-info  js_dataRows.pug
+  span , and
+  code.text-info  js_dataName.pug
+  span .
+
+p Add following code to the
+  code.text-info  js_changeType.pug
+  span  file:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // Javascript for dynamic creation of the data entry form
+    script.
+
+      var rowId = 1, type, placeholder, error='';
+
+      function typeChange() {
+        type = document.getElementById("type").value;
+
+        // remove all subforms
+        var elements = document.getElementsByClassName("subform");
+        var count=0, element;
+
+        for (var i = 0; i < elements.length; i++) {
+          element = elements[i];
+          element.parentNode.removeChild(element);
+          count++;
+        }
+
+        // remove results
+        var resultElement = document.getElementById('result');
+        if (resultElement) resultElement.parentNode.removeChild(resultElement);
+
+        // remove errors
+        var errElement = document.getElementById('error');
+        if (errElement) errElement.parentNode.removeChild(errElement);
+
+        // add payment subform
+        if (type === 'bytes') {
+          paymentDiv();
+        }
+        // add data subform
+        if (type === 'data' || type === 'data_feed') {
+          if (type === 'data') placeholder = 'Field';
+          if (type === 'data_feed') placeholder = 'Data Feed Name';
+          dataDiv();
+        }
+      }
+br

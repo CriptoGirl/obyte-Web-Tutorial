@@ -1,0 +1,94 @@
+h3 12. Preparing & Posting obyte Transactions
+
+h5 Configuring router
+p Then, add the following code to the top section of the
+  code.text-info  routers/postDAG.js
+  span  file.
+
+  div.card.bg-light.card-body
+    pre.text-info.
+      const client = require('../startup/obyte');
+
+h5 Preparing transaction data
+
+p We are going to modify
+  code.text-info  router.post
+  span  section of the
+  code.text-info  routers/postDAG.js
+  span  file.
+p Add the following code to the
+  code.text-info  // preparing transaction data
+  span  subsection:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    // preparing transaction data
+    const type = req.body.type;
+    const wif = req.body.wif;
+
+    if (type === 'bytes') {
+      var params = {
+        outputs: [ {
+          address: req.body.recipient,  // The Obyte address of the recipient
+          amount: Number(req.body.amount) } ] };// The amount she/he receives
+    }
+
+    if (type === 'data' || type === 'data_feed') {
+      var params = req.body;
+      delete params.type;
+      delete params.wif;
+    }
+br
+
+h5 Posting obyte payment & displaying results
+
+p Add the following code to the
+  code.text-info  // posting obyte payment & displaying results
+  span  subsection:
+
+div.card.bg-light.card-body
+  pre.text-info.
+      // posting obyte payment & displaying results
+      if (type === 'bytes') {
+        client.post.payment(params, wif, function(err, result) {
+          res.render('postDAG', { title: 'Data Transaction is Posted to DAG', err, result });
+        });
+      }
+br
+
+h5 Posting obyte data & displaying results
+
+p Add the following code to the
+  code.text-info  // posting obyte data & displaying results
+  span  subsection:
+
+div.card.bg-light.card-body
+  pre.text-info.
+      // posting obyte data & displaying results
+      if (type === 'data') {
+        client.post.data(params, wif, function(err, result) {
+          res.render('postDAG', { title: 'Data is Posted to DAG', err, result });
+        });
+      }
+br
+
+h5 Posting obyte data feed & displaying results
+
+p Add the following code to the
+  code.text-info  // posting obyte data feed & displaying results
+  span  subsection:
+
+div.card.bg-light.card-body
+  pre.text-info.
+      // posting obyte data feed & displaying results
+      if (type === 'data_feed') {
+        client.post.data(params, wif, function(err, result) {
+          res.render('postDAG', { title: 'Data Feed is Posted to DAG', err, result });
+        });
+      }
+br  
+
+h5 Commenting out test code
+p And finally, comment out
+  code.text-info  // testing post router
+  span  subsection.
