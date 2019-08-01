@@ -3,6 +3,18 @@ h3 14. Source Control with GIT
 h5 Prerequisite
 p You have to have GIT installed on your machine.
 
+h5 Add production start section to package.json file
+p Update "scripts" section of the
+  code.text-info  package.json
+  span  file to contain following:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node index.js"
+    },
+
 h5 Initilise local GIT repository
 p In command prompt window, go to your project directory and type
   code.text-info  git init
