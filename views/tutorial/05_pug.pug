@@ -1,18 +1,18 @@
-h3 5. Pug & Bootstrap Integration
+h3 5. Integrating with Pug & Bootstrap
 
 p.
-  The next step is to use Pug Temlating Engine to assist with
+  The next step is to use the Pug Templating Engine to assist with
   Front End development.
-  Pug template engine use static template files defined as part of the application.
+  Pug Template Engine uses static template files defined as part of the application.
   At runtime, the template engine replaces variables in a template file with actual
-  values, and transforms the template into an HTML file sent
+  values and transforms the template into an HTML file sent
   to the client.
 p.
-  We also will be using css from Bootstrap which we will be
+  We also will be using CSS from Bootstrap, which we will be
   dynamically acquiring at run time.
 
 h5 Install Pug
-p Install Pug saving it as a dependecy, by typing following command:
+p Install Pug saving it as a dependency, by typing the following command:
 div.card.bg-light.card-body
   pre.text-info.
     npm i --save pug
@@ -25,7 +25,7 @@ p Create
   code.text-info  layout.pug
   span  file under it.
 
-p Add following code to the
+p Add the following code to the
   code.text-info  layout.pug
   span  file:
 
@@ -49,11 +49,11 @@ div.card.bg-light.card-body
 
 br
 h5 Add menu template
-p Add
+p Add a
   code.text-info  menu.pug
-  span  template in
+  span  template file into the
   code.text-info  views
-  span  folder and add following code:
+  span  folder and add the following code to it:
 
 div.card.bg-light.card-body
   pre.text-info.
@@ -68,11 +68,11 @@ div.card.bg-light.card-body
 
 br
 h5 Create Other Pug templates
-p Add
+p Add an
   code.text-info  index.pug
-  span  template in
+  span  template into the
   code.text-info  views
-  span  folder and add following code:
+  span  folder and add the following code to it:
 
 div.card.bg-light.card-body
   pre.text-info.
@@ -83,23 +83,29 @@ div.card.bg-light.card-body
       p Some text...
 
 br
-p Repeat process to add
+p Repeat this process to add
   code.text-info  postDAG.pug
-  span  template and
-  code.text-info  searchDAG.pug
-  span  template in
-  code.text-info  views
-  span  folder, replacing
-  code.text-info  h2 Welcome!
-  span  with
-  code.text-info  h2 Post to DAG
   span  and
-  code.text-info  h2 Search DAG
-  span  respectively.
+  code.text-info  searchDAG.pug
+  span  templates into the
+  code.text-info  views
+  span  folder, replacing:
 
-br
+div.card.bg-light.card-body
+  pre.text-info.
+    h2 Welcome!
+p with:
+div.card.bg-light.card-body
+  pre.text-info.
+    h2 Post to DAG
+p and:
+div.card.bg-light.card-body
+  pre.text-info.
+    h2 Search DAG
+p respectively.
+
 h5 Directory Structure
-p Your directory structure should look like following:
+p Your directory structure should look like the following:
 div.card.bg-light.card-body
   pre.text-info.
     myObyteApp
@@ -120,7 +126,7 @@ div.card.bg-light.card-body
 
 br
 h5 Integrating Pug into the Express App
-p Import Node's native Path module, by adding following code to
+p Import Node's native Path module, by adding the following code to the
   code.text-info  app.js
   span  file:
 div.card.bg-light.card-body
@@ -135,7 +141,7 @@ p Configure
   span  to use Pug as a layout engine and to look
   span  for templates inside the
   code.text-info  views
-  span  folder with following commands:
+  span  folder with these commands:
 
 div.card.bg-light.card-body
   pre.text-info.
@@ -143,36 +149,36 @@ div.card.bg-light.card-body
     app.set('view engine', 'pug');
 br
 h5 Modify Routes to use Pug templates
-p Finally, modify all files in
+p Finally, modify all files in the
   code.text-info  routes
   span  folder replacing
   code.text-info   res.send
   span  command with
   code.text-info  res.render
-  span  command as following:
+  span  command as follows:
 p Replace
   code.text-info  res.send('Home page');
-  span  command with
+  span  with
   code.text-info  res.render('index', { title: 'Home page' });
-  span  command in
+  span  in the
   code.text-info  home.js
   span  file.
 p Replace
   code.text-info  res.send('Post DAG page');
-  span  command with
+  span  with
   code.text-info  res.render('postDAG', { title: 'Post to DAG page' });
-  span  command in
+  span  in the
   code.text-info  postDAG.js
   span  file.
 p Replace
   code.text-info  res.send('Search DAG page');
-  span  command with
+  span  with
   code.text-info  res.render('searchDAG', { title: 'Search DAG page' });
-  span  command in
+  span  in the
   code.text-info  searchDAG.js
   span  file.
 br
 h5 Test Pug Integration
-p Restart server in command window by typing
+p Restart server from the command window by typing
   code.text-info  nodemon
-p Test application in the browser.
+p Test the application in a browser.
