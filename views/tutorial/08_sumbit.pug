@@ -2,8 +2,10 @@ h3 8. Submitting the Form
 
 h5 Creating a POST route
 p Add
-  code.text-info  post
-  span  router in the
+  code.text-info  router.post
+  span  section after the
+  code.text-info  router.get
+  span  section of the
   code.text-info  routes/postDAG.js
   span  file containing a placeholder for future Obyte integration as follows:
 
@@ -45,8 +47,14 @@ div.card.bg-light.card-body
     ...
     app.use(bodyParser.urlencoded({ extended: true }));
 br
+p Place
+  code.text-info  app.use(bodyParser.urlencoded({ extended: true }));
+  span  line before
+  code.text-info  app.use('/', home);
+  span  line.
+
 p.
   Test your application and check the console to see your data
   posted to the server.
-p You should see something like this:
+p You should see something like this displayed on the console:
   code.text-info  { type: 'data', wid: 'wid123test', 'myField 1': 'myValue 1', myField2: 'myValue 2', 'myField 3': 'myValue 3' }
