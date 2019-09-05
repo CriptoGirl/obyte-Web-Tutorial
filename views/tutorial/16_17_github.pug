@@ -1,0 +1,35 @@
+h3 16. Publishing to Github
+
+h5 Sign up & Login
+p It is a good practice to keep your source on Github.
+  span  Sign up for a free account using your email address, then login.
+
+h5 Create a new repository
+p Create a new Github repository by clicking on the New button.
+  span  Github will ask you for a repository name.  After repository is generated,
+  span  Github will provide you with commands for pushing your local code to
+  span  the new repository.
+
+h5 Push an existing repository from the command line
+p In command prompt go to your project directory and execute
+  span 'git remote add origin <git repository>''
+  span  command provided.  This creates remote from your local project
+  span  directroy to your Github repository.
+p Next push your locally stored code into the new repository
+  code.text-info  git push -u origin master
+
+h3 17. Keep Github up-to-date
+p Anytime you make changes to your application remember to update
+  span  your Github repostiory and deploy to Heroku. Simply go to your project folder in
+  span  command prompt and type following commands:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    git add .
+    git commit -m "another commit"
+    git push -u origin master
+    git push heroku master
+br
+
+h3 18. Search DAG and display
+p This tutorial is coming soon.
