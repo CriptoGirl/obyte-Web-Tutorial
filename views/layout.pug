@@ -3,14 +3,20 @@ html
   head
     title= `${title}`
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
 
   body
-    header.navbar.bg-info.text-light
-      h2 Obyte Web Integration Tutorial and Sample App
+    div
+      div.fixed-top
+        include header.pug
+        include menu.pug
 
-    header.bg-light
-      include menu.pug
+      div.container-fluid
+        include header.pug
+        include menu.pug
+        block content
 
-    div.container-fluid
-      block content
-//-
+    footer.navbar.bg-info.text-light.fixed-bottom
+      p © CryptoGirl 2019
+      // getFullYear() © CryptoCurl
+// comment

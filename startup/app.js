@@ -13,6 +13,7 @@ const home = require('../routes/home');
 const tutorial = require('../routes/tutorial');
 const postDAG = require('../routes/postDAG');
 const searchDAG = require('../routes/searchDAG');
+const donate = require('../routes/donate');
 
 app.use(express.static('resources')); //This will allow express to access any file in that folder
 
@@ -23,5 +24,6 @@ app.use('/home', home);
 app.use('/tutorial', tutorial);
 app.use('/postDAG', postDAG);
 app.use('/searchDAG', searchDAG);
+app.use('/donate', donate);
 
 module.exports = app;
