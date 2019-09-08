@@ -1,0 +1,18 @@
+p Support Obyte tutorials by making a donation.
+
+script.
+  function process() {
+    var url="https://api.qrserver.com/v1/create-qr-code/?" +
+            "size=150x150" +
+            "&data=" +
+            "byteball:WBDVHHKXVLA26NQ4ETV6664UOZPHMUR6?asset=base";
+    document.getElementById('QRCode').src = url;
+  }
+
+body(onload="process()")
+div.text-center
+  img(src='', id='QRCode')
+
+br
+br
+p Scan this code with your Obyte Wallet. Thank you!

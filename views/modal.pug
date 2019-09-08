@@ -1,0 +1,13 @@
+//-- Modal --
+div.modal.fade(id="myModal" role="dialog")
+  div.modal-dialog
+    //-- Modal content--
+    div.modal-content
+      div.modal-header.bg-info.text-light
+        h4.modal-title Please donate generously :)
+        button.close(type="button" data-dismiss="modal" style='color:white') &times;
+      div.modal-body
+        p Support Obyte tutorials by making a donation.
+        include donateObyte.pug
+      //div.modal-footer.bg-info
+      //  button.btn.btn-default(type="button"  data-dismiss="modal") Close

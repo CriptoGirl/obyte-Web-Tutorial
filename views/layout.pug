@@ -2,21 +2,18 @@ doctype html
 html
   head
     title= `${title}`
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css')
-    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css')
+    include vendorScripts.pug
 
   body
-    div
-      div.fixed-top
+    div.fixed-top
         include header.pug
         include menu.pug
 
-      div.container-fluid
-        include header.pug
-        include menu.pug
-        block content
+    div.container-fluid
+      include header.pug
+      include menu.pug
+      include modal.pug
 
-    footer.navbar.bg-info.text-light.fixed-bottom
-      p © CryptoGirl 2019
-      // getFullYear() © CryptoCurl
-// comment
+      block content
+
+    include footer.pug
