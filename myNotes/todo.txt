@@ -1,12 +1,2 @@
-1.
-paulmurrayToday at 04:22
-@Crypto Girl tutorial looks excellent.
-By the way, on your donation page it might be an idea to ask people to click
-a text link to open the wallet on their computer instead of asking them to click
-the qr code. People are used to scanning qr codes, not clicking them.
-Also, might be an idea to actually list the donation wallet address somewhere too.
-When I looked at the page at first I thought it wasnt possibly to donation without
-scanning the qr as my eyes were looking for the wallet address :eyes:
-e.g lke this
-https://docs.google.com/document/d/1bzg0z7mmP4qBK-3Lqg3NQmUU5u_RYuFgMDqgat5oUDw/edit?usp=sharing
-2.
+1. Restructure layout.pug to include fixed header, footer...
+2. Search page

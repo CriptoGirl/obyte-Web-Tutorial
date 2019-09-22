@@ -41,8 +41,7 @@ div.card.bg-light.card-body
         header.navbar.bg-info.text-light
           h1 My Application
 
-        header.bg-light
-          include menu.pug
+        include menu.pug
 
         div.container-fluid
           block content
@@ -57,14 +56,15 @@ p Add a
 
 div.card.bg-light.card-body
   pre.text-info.
-    block menu
-      ul.nav.nav-tabs
-        li.nav-item
-          a.nav-link.text-dark(href=".")="Home"
-        li.nav-item
-          a.nav-link.text-dark(href="postDAG")= "Post to DAG"
-        li.nav-item
-          a.nav-link.text-dark(href="searchDAG")= "Search DAG"
+    header.bg-light
+      block menu
+        ul.nav.nav-tabs
+          li.nav-item
+            a.nav-link.text-dark(href=".")="Home"
+          li.nav-item
+            a.nav-link.text-dark(href="postDAG")= "Post to DAG"
+          li.nav-item
+            a.nav-link.text-dark(href="searchDAG")= "Search DAG"
 
 br
 h5 Create Other Pug templates
