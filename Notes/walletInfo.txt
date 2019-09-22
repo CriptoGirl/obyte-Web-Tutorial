@@ -1,0 +1,14 @@
+Seed
+tree shift tiny rare crash differ enough moment cluster slim april dry
+
+Path
+m/44'/1'/0'/0/0
+
+WIF
+936nenPkyMjjWzyNFEbMLymrJpt8yYXsezfXuXuRYtgR16nQWSY
+
+Public key
+A13mRt0c8rfLWlRvkd0vv0il+LF3ehEZd6SMacd7IEgi
+
+Address
+4RU555ESP6YSICBULBCM62KSXLH5W3GO

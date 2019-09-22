@@ -141,13 +141,42 @@ p Configure
   span  to use Pug as a layout engine and to look
   span  for templates inside the
   code.text-info  views
-  span  folder with these commands:
+  span  folder by adding the following commands after
+  code.text-info  app.use('/', home);
+  span  line:
 
 div.card.bg-light.card-body
   pre.text-info.
     app.set('../views', path.join(__dirname, 'views'));
     app.set('view engine', 'pug');
 br
+
+p Your
+  code.text-info  app.js
+  span  file should look like following:
+
+div.card.bg-light.card-body
+  pre.text-info.
+    const express = require('express');
+    const app = express();
+    const path = require('path');
+
+    // routes
+    const home = require('../routes/home');
+    const postDAG = require('../routes/postDAG');
+    const searchDAG = require('../routes/searchDAG');
+
+    app.set('../views', path.join(__dirname, 'views'));
+    app.set('view engine', 'pug');
+
+    app.use('/', home);
+    app.use('/home', home);
+    app.use('/postDAG', postDAG);
+    app.use('/searchDAG', searchDAG);
+
+    module.exports = app;
+br
+
 h5 Modify Routes to use Pug templates
 p Finally, modify all files in the
   code.text-info  routes

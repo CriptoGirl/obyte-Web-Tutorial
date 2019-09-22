@@ -1,0 +1,45 @@
+h3 10. Setting up your Obyte js wallet
+p.
+  Next, you need to create another wallet to work with your application.
+  This wallet will be used to fund saving data and sending payments.
+
+p For the purposes of this tutorial, we will refer to it as the Obyte js Wallet.
+
+p Click on the link below and select
+  code.text-info  Testnet
+  span  Env option, then click the
+  code.text-info  Generate new random wallet
+  span  button.
+a( href="https://bonustrack.github.io/obyte-paperwallet/" target="PaperWallet" )="Generate your Obyte js (Paper) Wallet."
+br
+br
+p This creates your
+  code.text-info  js wallet
+  span .
+  strong  Note the js wallet's details
+  span  shown.
+p The generated
+  code.text-info  WIF
+  span  will be used for Obyte js integration and
+  code.text-info  the address
+  span  will be used for funding.  When working with testnet,
+  span  you can save this in the
+  code.text-info  obyte/TestWalletInfo.txt
+  span  file. However, when working with live wallets, make sure to
+  span=' '
+  strong.
+      keep this data private
+  span , as anyone with access to this data would be able to control funds in your wallet!
+
+h5 Funding your js wallet
+p Fund your new
+  code.text-info  js wallet
+  span  by sending Bytes to its address from your
+  code.text-info  GUI wallet
+  span . Make sure you send enough Bytes to use for testing.  20,000 or more.
+
+p Check that everything worked by going to the
+  code.text-info  #[a( href='https://testnetexplorer.obyte.org/' target="_blank" ) Testnet DAG explorer]
+  span  to view public transactions and searching using your
+  code.text-info  js wallet
+  span 's address.

@@ -33,8 +33,9 @@ div.card.bg-light.card-body
                 id='type'
                 name='type'
                 onchange='typeChange()'
+                required
               )
-                option() What to post?
+                option(value='') What to post?
                 option(value='bytes') Bytes
                 option(value='data') Data
                 option(value='data_feed') Data Feed
@@ -44,6 +45,7 @@ div.card.bg-light.card-body
                 id='wif'
                 name='wif'
                 placeholder='WIF'
+                required
               )
 
         div(id='paymentDiv')
