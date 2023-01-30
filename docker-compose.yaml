@@ -1,0 +1,14 @@
+version: '2'
+services:
+  server:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      target: base
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./:/usr/src
+      - node_modules:/usr/src/node_modules
+volumes:
+  node_modules:
